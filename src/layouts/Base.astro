@@ -1,0 +1,173 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Dhwani Patel — bridging science, strategy, and storytelling',
+  description = 'Dhwani Patel — a microbial-genomics PhD turned venture builder, carrying scientific rigor into operating clarity, by way of India, Australia, Canada, and the US.',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- If JS is disabled, never leave reveal-on-scroll content hidden. -->
+    <noscript>
+      <style>
+        [data-reveal] {
+          opacity: 1 !important;
+          clip-path: none !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --ink: #23211c;
+    --blue: #2743e8;
+    --blue-dark: #1a2fb0;
+    --muted: #5b574e;
+    --cement: #e9e5dc;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: 'Jost', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background: var(--cement);
+  }
+
+  a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(39, 67, 232, 0.3);
+    transition: color 0.25s, border-color 0.25s;
+  }
+
+  a:hover {
+    color: var(--blue-dark);
+    border-color: var(--blue-dark);
+  }
+
+  ::selection {
+    background: #c9d0f6;
+    color: var(--ink);
+  }
+
+  @keyframes floatA {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(10px, -16px) rotate(14deg);
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes sway {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(9px);
+    }
+  }
+
+  /* Respect users who prefer reduced motion: stop the ambient loops. */
+  @media (prefers-reduced-motion: reduce) {
+    #spark,
+    #badge,
+    .scroll-cue,
+    .lotus {
+      animation: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Responsive: collapse two-column layouts on small screens. */
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+      justify-items: center;
+      text-align: left;
+    }
+    .journey-grid {
+      grid-template-columns: 1fr !important;
+    }
+    /* On mobile the sticky illustration stage would fight the steps; let it flow. */
+    .journey-stage {
+      position: relative !important;
+      top: 0 !important;
+      height: auto !important;
+      margin-bottom: 20px;
+    }
+    .journey-step {
+      min-height: 60vh !important;
+    }
+    .skills-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
