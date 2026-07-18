@@ -946,10 +946,18 @@ import Base from '../layouts/Base.astro';
         data-reveal="up"
         style="opacity:0;transform:translateY(20px);transition:opacity 1.05s ease .18s,transform 1.05s cubic-bezier(.22,1,.36,1) .18s"
       >
+        <!--
+          Email is assembled at runtime from split data-* parts so the plaintext
+          address never appears in the static HTML that harvester bots scrape.
+          The visible text below is a readable [at]/[dot] fallback for no-JS users.
+        -->
         <a
-          href="mailto:dhwanip9@gmail.com"
+          id="contact-email"
+          data-a="dhwanip9"
+          data-b="gmail"
+          data-c="com"
           style="display:inline-block;font-family:'Jost';font-size:16px;letter-spacing:.02em;background:#2743E8;color:#F4F2EC;border:none;border-radius:0;padding:15px 38px"
-          >dhwanip9@gmail.com</a
+          >dhwanip9 <span aria-hidden="true">[at]</span> gmail <span aria-hidden="true">[dot]</span> com</a
         >
       </div>
     </section>
@@ -1074,6 +1082,17 @@ import Base from '../layouts/Base.astro';
       }
     });
   });
+
+  // ---- assemble the (bot-obfuscated) contact email at runtime ----
+  const emailEl = document.getElementById('contact-email') as HTMLAnchorElement | null;
+  if (emailEl) {
+    const { a, b, c } = emailEl.dataset;
+    if (a && b && c) {
+      const addr = `${a}@${b}.${c}`;
+      emailEl.href = `mailto:${addr}`;
+      emailEl.textContent = addr;
+    }
+  }
 
   // ---- hero decor parallax ----
   const spark = document.getElementById('spark');
