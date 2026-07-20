@@ -2,9 +2,10 @@
 
 Personal website for **Dhwani Patel** — bridging science, strategy, and storytelling.
 
-A single-page scrollytelling site: a hero, an "about," a six-city journey stepper
-(hand-drawn city landmarks that cross-fade as you scroll), past-work panels, a
-current-project card, a skills grid, and a contact section.
+A single-page site with a sticky nav, a hero, an "about," a "Where I've built"
+institution grid, a "What I bring" toolkit (Technical / Transferable / Soft),
+split-panel past-work sections, a current-project card, and a contact section
+with résumé download. Reveal-on-scroll animation throughout.
 
 ## Tech
 

@@ -5,7 +5,7 @@ export interface Props {
 }
 
 const {
-  title = 'Dhwani Patel — bridging science, strategy, and storytelling',
+  title = 'Dhwani Patel — bridging deep-tech & strategy, to impact',
   description = 'Dhwani Patel — a microbial-genomics PhD turned venture builder, carrying scientific rigor into operating clarity, by way of India, Australia, Canada, and the US.',
 } = Astro.props;
 
@@ -131,13 +131,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       transform: translateY(9px);
     }
   }
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: translateY(14px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 
   /* Respect users who prefer reduced motion: stop the ambient loops. */
   @media (prefers-reduced-motion: reduce) {
     #spark,
     #badge,
     .scroll-cue,
-    .lotus {
+    .lotus,
+    .fab {
       animation: none !important;
     }
     html {
@@ -145,28 +156,39 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     }
   }
 
-  /* Responsive: collapse two-column layouts on small screens. */
-  @media (max-width: 860px) {
+  /* Responsive: collapse multi-column layouts on smaller screens. */
+  @media (max-width: 900px) {
     .about-grid {
       grid-template-columns: 1fr !important;
       gap: 40px !important;
-      justify-items: center;
-      text-align: left;
+      justify-items: start;
     }
-    .journey-grid {
+    .bg-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .toolkit-grid {
       grid-template-columns: 1fr !important;
     }
-    /* On mobile the sticky illustration stage would fight the steps; let it flow. */
-    .journey-stage {
-      position: relative !important;
-      top: 0 !important;
-      height: auto !important;
-      margin-bottom: 20px;
+    .panel-grid {
+      grid-template-columns: 1fr !important;
     }
-    .journey-step {
-      min-height: 60vh !important;
+    /* Stacked image halves need a real height since they no longer share a row. */
+    .panel-media {
+      min-height: 44vh;
     }
-    .skills-grid {
+    /* Dividers between institution cards only make sense in the multi-column grid. */
+    .bg-cell--r::after,
+    .bg-cell--t::before {
+      display: none !important;
+    }
+    /* Trim the nav down to the essentials so it never overflows on phones. */
+    .nav-collapse {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .bg-grid {
       grid-template-columns: 1fr !important;
     }
   }
