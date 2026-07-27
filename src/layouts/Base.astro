@@ -156,40 +156,54 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     }
   }
 
-  /* Responsive: collapse multi-column layouts on smaller screens. */
-  @media (max-width: 900px) {
-    .about-grid {
+  /* Responsive: single-column phone layout (mirrors the source design). */
+  @media (max-width: 760px) {
+    [data-mq='hide-m'] {
+      display: none !important;
+    }
+    nav {
+      height: auto !important;
+      flex-wrap: wrap;
+      row-gap: 8px;
+      padding: 12px 20px !important;
+    }
+    #navlinks {
+      flex-wrap: wrap;
+      gap: 15px !important;
+      font-size: 13px !important;
+    }
+    #fab {
+      padding: 12px !important;
+    }
+    #fab [data-fab-label] {
+      display: none;
+    }
+    #about-grid {
       grid-template-columns: 1fr !important;
       gap: 40px !important;
-      justify-items: start;
     }
-    .bg-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
+    #about-grid > div:first-child {
+      margin: 0 auto;
     }
-    .toolkit-grid {
+    #bg-grid {
       grid-template-columns: 1fr !important;
     }
-    .panel-grid {
-      grid-template-columns: 1fr !important;
-    }
-    /* Stacked image halves need a real height since they no longer share a row. */
-    .panel-media {
-      min-height: 44vh;
-    }
-    /* Dividers between institution cards only make sense in the multi-column grid. */
-    .bg-cell--r::after,
-    .bg-cell--t::before {
+    #bg-grid > div::before,
+    #bg-grid > div::after {
       display: none !important;
     }
-    /* Trim the nav down to the essentials so it never overflows on phones. */
-    .nav-collapse {
-      display: none !important;
+    #bg-grid > div:not([data-mq]) {
+      border-bottom: 1px solid rgba(110, 99, 184, 0.5);
     }
-  }
-
-  @media (max-width: 560px) {
-    .bg-grid {
+    #toolkit-grid {
       grid-template-columns: 1fr !important;
+    }
+    [data-panel] {
+      grid-template-columns: 1fr !important;
+      min-height: auto !important;
+    }
+    [data-panel] .panel-media {
+      min-height: 280px;
     }
   }
 </style>

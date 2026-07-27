@@ -6,44 +6,48 @@ import Base from '../layouts/Base.astro';
   <div id="page" style="position:relative;min-height:100vh;background:#E9E5DC">
     <!-- ══════════════ STICKY TOP NAV ══════════════ -->
     <nav
-      style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 clamp(20px,4vw,54px);height:72px;background:rgba(233,229,220,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(39,67,232,.14)"
+      style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 clamp(20px,4vw,54px);height:72px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(39,67,232,.14);background-color:#E9E5DCD1"
     >
       <a
         href="#top"
         style="font-family:'Jost';font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#2743E8;font-weight:500;border-bottom:none"
         >Dhwani Patel</a
       >
-      <div style="display:flex;align-items:center;gap:clamp(14px,2vw,30px);font-family:'Jost';font-size:14px">
-        <a href="#about" class="nav-collapse" style="color:#3A3830;border-bottom:none">About</a>
-        <a href="#background" class="nav-collapse" style="color:#3A3830;border-bottom:none">Background</a>
-        <a href="#toolkit" class="nav-collapse" style="color:#3A3830;border-bottom:none">What I bring</a>
-        <a href="#work" class="nav-collapse" style="color:#3A3830;border-bottom:none">Past work</a>
-        <span class="nav-collapse" style="width:1px;height:20px;background:rgba(39,67,232,.22)"></span>
+      <div
+        id="navlinks"
+        style="display:flex;align-items:center;gap:clamp(14px,2vw,30px);font-family:'Jost';font-size:14px"
+      >
+        <a href="#about" style="color:#3A3830;border-bottom:none">About</a>
+        <a href="#background" style="color:#3A3830;border-bottom:none">Background</a>
+        <a href="#toolkit" style="color:#3A3830;border-bottom:none">What I bring</a>
+        <a href="#work" style="color:#3A3830;border-bottom:none">Past work</a>
+        <span data-mq="hide-m" style="width:1px;height:20px;background:rgba(39,67,232,.22)"></span>
         <a
+          data-mq="hide-m"
           href="https://www.linkedin.com/in/dhwaniapatel"
           target="_blank"
           rel="noopener"
-          class="nav-collapse"
           style="color:#5B574E;border-bottom:none">LinkedIn</a
         >
         <a
+          data-mq="hide-m"
           href="https://github.com/dhwanip9"
           target="_blank"
           rel="noopener"
-          class="nav-collapse"
           style="color:#5B574E;border-bottom:none">GitHub</a
         >
         <a
+          data-mq="hide-m"
           href="https://medium.com/@dhwanip9"
           target="_blank"
           rel="noopener"
-          class="nav-collapse"
           style="color:#5B574E;border-bottom:none">Medium</a
         >
         <a
+          data-mq="hide-m"
           href="/Dhwani-Patel-Resume.pdf"
           download
-          class="nav-collapse hover-outline"
+          class="hover-outline"
           style="display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:#2743E8;border:1px solid rgba(39,67,232,.5);border-radius:0;padding:8px 15px"
         >
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2743E8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M6 11l6 6 6-6M4 21h16"></path></svg>Résumé
@@ -82,6 +86,7 @@ import Base from '../layouts/Base.astro';
 
       <div
         id="badge"
+        data-mq="hide-m"
         style="position:absolute;right:9%;bottom:18%;width:132px;height:132px;pointer-events:none;animation:spin 26s linear infinite"
       >
         <svg viewBox="0 0 200 200" width="132" height="132">
@@ -138,6 +143,7 @@ import Base from '../layouts/Base.astro';
       </div>
       <div
         class="scroll-cue"
+        data-mq="hide-m"
         style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:9px;animation:drift 2.8s ease-in-out infinite"
       >
         <span
@@ -162,7 +168,7 @@ import Base from '../layouts/Base.astro';
       style="position:relative;background:#E9E5DC;padding:120px 0;scroll-margin-top:84px"
     >
       <div
-        class="about-grid"
+        id="about-grid"
         style="max-width:1000px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:stretch"
       >
         <div
@@ -233,7 +239,7 @@ import Base from '../layouts/Base.astro';
         </h2>
       </div>
       <div
-        class="bg-grid"
+        id="bg-grid"
         data-reveal="up"
         style="opacity:0;transform:translateY(22px);transition:opacity 1s ease,transform 1s cubic-bezier(.22,1,.36,1);max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0"
       >
@@ -262,7 +268,7 @@ import Base from '../layouts/Base.astro';
           <div style="font-family:'Jost';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#2743E8;margin-top:10px">BRISBANE, AUSTRALIA</div>
           <div style="font-family:'Jost';font-size:12.5px;line-height:1.5;color:#7A756A;margin-top:6px">PhD · Microbial Genomics</div>
         </div>
-        <div class="bg-gradient" style="grid-column:span 3;background:linear-gradient(90deg,#C9C6EC,#D3BCFB8E)"></div>
+        <div data-mq="hide-m" style="grid-column:span 3;background:linear-gradient(90deg,#C9C6EC,#D3BCFB8E)"></div>
       </div>
     </section>
 
@@ -272,7 +278,7 @@ import Base from '../layouts/Base.astro';
       data-screen-label="Skills"
       style="position:relative;background:#E9E5DC;scroll-margin-top:84px"
     >
-      <div style="max-width:1000px;margin:0 auto;padding:110px 40px 70px">
+      <div style="max-width:1000px;margin:0 auto;padding:110px 40px 56px">
         <div style="text-align:center;margin-bottom:44px">
           <div
             data-reveal="up"
@@ -288,7 +294,7 @@ import Base from '../layouts/Base.astro';
           </h2>
         </div>
         <div
-          class="toolkit-grid"
+          id="toolkit-grid"
           style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(39,67,232,.14);align-items:stretch"
         >
           <div
@@ -332,9 +338,9 @@ import Base from '../layouts/Base.astro';
     <section
       id="work"
       data-screen-label="Past work"
-      style="position:relative;background:#E9E5DC;scroll-margin-top:84px"
+      style="position:relative;scroll-margin-top:84px;background-color:#E2DDD1"
     >
-      <div style="text-align:center;max-width:760px;margin:0 auto;padding:110px 32px 54px">
+      <div style="text-align:center;max-width:760px;margin:0 auto;padding:44px 32px 54px">
         <div
           data-reveal="up"
           style="opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1);font-family:'Jost';font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#2743E8;font-weight:500;margin-bottom:16px"
@@ -350,7 +356,7 @@ import Base from '../layouts/Base.astro';
       </div>
 
       <!-- PW panel 1 — text left, media right -->
-      <div class="panel-grid" style="position:relative;width:100%;min-height:70vh;display:grid;grid-template-columns:1fr 1fr;background:#E9E5DC">
+      <div data-panel style="position:relative;width:100%;min-height:70vh;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(0deg,#F3EACB,#FFF8D7)">
         <div style="display:flex;align-items:center;padding:8vh clamp(32px,5vw,72px)">
           <div
             data-reveal="left"
@@ -361,13 +367,13 @@ import Base from '../layouts/Base.astro';
             <p style="font-family:'Jost';font-weight:300;font-size:17px;line-height:1.8;color:#3A3830;margin:0;max-width:46ch">Built the strategic case from zero — market analysis across 11+ ventures, synthesis from 10+ key opinion leaders, and an operational plan greenlit at the site level.</p>
           </div>
         </div>
-        <div class="panel-media" style="position:relative;overflow:hidden;background-color:#FFF7B3;display:flex;align-items:center;justify-content:center">
+        <div class="panel-media" style="position:relative;overflow:hidden;background-color:#FFFDF1;display:flex;align-items:center;justify-content:center">
           <span style="font-family:'Jost';font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(35,33,28,.32)">photo</span>
         </div>
       </div>
 
       <!-- PW panel 2 — media left, text right -->
-      <div class="panel-grid" style="position:relative;width:100%;min-height:80vh;display:grid;grid-template-columns:1fr 1fr;background:#E9E5DC">
+      <div data-panel style="position:relative;width:100%;min-height:80vh;display:grid;grid-template-columns:1fr 1fr;background:#E9E5DC">
         <div class="panel-media" style="position:relative;overflow:hidden;background:#C4C9E6;display:flex;align-items:center;justify-content:center">
           <span style="font-family:'Jost';font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(35,33,28,.32)">photo</span>
         </div>
@@ -384,7 +390,7 @@ import Base from '../layouts/Base.astro';
       </div>
 
       <!-- PW panel 3 — text left, media right -->
-      <div class="panel-grid" style="position:relative;width:100%;min-height:70vh;display:grid;grid-template-columns:1fr 1fr;background:#E9E5DC">
+      <div data-panel style="position:relative;width:100%;min-height:70vh;display:grid;grid-template-columns:1fr 1fr;background:#E9E5DC">
         <div style="display:flex;align-items:center;padding:8vh clamp(32px,5vw,72px)">
           <div
             data-reveal="left"
@@ -395,14 +401,14 @@ import Base from '../layouts/Base.astro';
             <p style="font-family:'Jost';font-weight:300;font-size:17px;line-height:1.8;color:#3A3830;margin:0;max-width:46ch">Designed and ran a talent-development program for female-identifying high-school students, built from scratch.</p>
           </div>
         </div>
-        <div class="panel-media" style="position:relative;overflow:hidden;background-color:#FFFAD7;display:flex;align-items:center;justify-content:center">
+        <div class="panel-media" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#F3EACB,#FFF8D7);display:flex;align-items:center;justify-content:center">
           <span style="font-family:'Jost';font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(35,33,28,.32)">photo</span>
         </div>
       </div>
     </section>
 
     <!-- ══════════════ 6 · CURRENTLY WORKING ON ══════════════ -->
-    <section data-screen-label="Currently" style="position:relative;background:#D8DDF4;padding:120px 40px">
+    <section data-screen-label="Currently" style="position:relative;padding:120px 40px;background-color:#E0E5FB">
       <div style="text-align:center;margin-bottom:44px">
         <div
           data-reveal="up"
@@ -413,7 +419,7 @@ import Base from '../layouts/Base.astro';
       </div>
       <div
         data-reveal="up"
-        style="opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.22,1,.36,1);max-width:660px;margin:0 auto;background:#E9E5DC;border:1px solid rgba(39,67,232,.22);border-top:4px solid #2743E8;padding:40px 44px;box-shadow:0 18px 44px rgba(40,40,80,.14)"
+        style="opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.22,1,.36,1);max-width:660px;margin:0 auto;border:1px solid rgba(39,67,232,.22);border-top:4px solid #2743E8;padding:40px 44px;box-shadow:0 18px 44px rgba(40,40,80,.14);background-color:#E9E5DCD0"
       >
         <div style="font-family:'Jost';font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:#2743E8;font-weight:500">Current project</div>
         <h3 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:32px;margin:12px 0 12px;color:#23211C">Your current project title</h3>
@@ -500,6 +506,7 @@ import Base from '../layouts/Base.astro';
           data-a="dhwanip9"
           data-b="gmail"
           data-c="com"
+          data-subject="Hello%20Dhwani"
           style="display:inline-block;font-family:'Jost';font-size:16px;letter-spacing:.02em;background:#2743E8;color:#F4F2EC;border:none;border-radius:0;padding:15px 38px"
           >dhwanip9 <span aria-hidden="true">[at]</span> gmail <span aria-hidden="true">[dot]</span> com</a
         >
@@ -519,21 +526,40 @@ import Base from '../layouts/Base.astro';
       style="background:linear-gradient(90deg,#F3EACB,#EFB4C1,#BCC6EC);padding:34px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap"
     >
       <div style="font-family:'Jost';font-size:22px;color:#3A3830">DHWANI PATEL</div>
-      <div style="display:flex;gap:26px;font-family:'Jost';font-size:13.5px">
-        <a href="https://www.linkedin.com/in/dhwaniapatel" target="_blank" rel="noopener" style="color:#23211C;border-bottom-color:rgba(35,33,28,.35)">LinkedIn</a>
-        <a href="https://github.com/dhwanip9" target="_blank" rel="noopener" style="color:#23211C;border-bottom-color:rgba(35,33,28,.35)">GitHub</a>
-        <a href="https://medium.com/@dhwanip9" target="_blank" rel="noopener" style="color:#23211C;border-bottom-color:rgba(35,33,28,.35)">Medium</a>
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap">
+        <a
+          href="https://www.linkedin.com/in/dhwaniapatel"
+          target="_blank"
+          rel="noopener"
+          class="footer-link"
+          style="display:inline-flex;align-items:center;justify-content:center;width:104px;padding:9px 0;color:#3A3830;font-family:'Jost';font-size:13.5px;letter-spacing:.04em;border-bottom:none">LinkedIn</a
+        >
+        <a
+          href="https://github.com/dhwanip9"
+          target="_blank"
+          rel="noopener"
+          class="footer-link"
+          style="display:inline-flex;align-items:center;justify-content:center;width:104px;padding:9px 0;color:#3A3830EB;font-family:'Jost';font-size:13.5px;letter-spacing:.04em;border-bottom:none">GitHub</a
+        >
+        <a
+          href="https://medium.com/@dhwanip9"
+          target="_blank"
+          rel="noopener"
+          class="footer-link"
+          style="display:inline-flex;align-items:center;justify-content:center;width:104px;padding:9px 0;color:#3A3830;font-family:'Jost';font-size:13.5px;letter-spacing:.04em;border-bottom:none">Medium</a
+        >
       </div>
       <div style="font-family:'Jost';font-size:12px;color:#3A3830">© 2025 Dhwani Patel</div>
     </footer>
 
     <!-- floating contact button -->
     <a
+      id="fab"
       href="#contact"
       class="fab hover-primary"
       style="position:fixed;bottom:26px;right:26px;z-index:60;display:inline-flex;align-items:center;gap:9px;font-family:'Jost';font-size:15px;letter-spacing:.02em;background:#2743E8;color:#F4F2EC;border:none;border-radius:999px;padding:14px 24px;box-shadow:0 10px 28px rgba(39,67,232,.36);animation:popIn .5s ease both"
     >
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F4F2EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"></path><path d="M4 6l8 6 8-6"></path></svg>Get in touch
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F4F2EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"></path><path d="M4 6l8 6 8-6"></path></svg><span data-fab-label>Get in touch</span>
     </a>
   </div>
 </Base>
@@ -552,6 +578,12 @@ import Base from '../layouts/Base.astro';
   .hover-outline:hover {
     background: rgba(39, 67, 232, 0.08) !important;
     border-color: #2743e8 !important;
+  }
+  .footer-link {
+    transition: background 0.2s;
+  }
+  .footer-link:hover {
+    background: rgba(255, 255, 255, 0.6);
   }
 
   /* Institution-grid dividers (the source expressed these as style-after/before attrs). */
@@ -626,10 +658,10 @@ import Base from '../layouts/Base.astro';
   // ---- assemble the (bot-obfuscated) contact email at runtime ----
   const emailEl = document.getElementById('contact-email') as HTMLAnchorElement | null;
   if (emailEl) {
-    const { a, b, c } = emailEl.dataset;
+    const { a, b, c, subject } = emailEl.dataset;
     if (a && b && c) {
       const addr = `${a}@${b}.${c}`;
-      emailEl.href = `mailto:${addr}`;
+      emailEl.href = `mailto:${addr}${subject ? `?subject=${subject}` : ''}`;
       emailEl.textContent = addr;
     }
   }
