@@ -1,39 +1,19 @@
-# dhwanip9.github.io
+# Dhwani Patel — personal site
 
-Personal website for **Dhwani Patel** — bridging science, strategy, and storytelling.
+Two files, no build step, no dependencies:
 
-A single-page site with a sticky nav, a hero, an "about," a "Where I've built"
-institution grid, a "What I bring" toolkit (Technical / Transferable / Soft),
-split-panel past-work sections, a current-project card, and a contact section
-with résumé download. Reveal-on-scroll animation throughout.
+- `index.html` — the entire site, self-contained (images, fonts, and scripts are inlined)
+- `Dhwani-Patel-Resume.pdf` — linked by the "Résumé" buttons in the nav and contact section
 
-## Tech
+## Publishing to GitHub Pages
 
-- **[Astro](https://astro.build)** — static output, near-zero client JS
-- Vanilla TypeScript for the scroll interactions (reveal-on-scroll,
-  city stepper, hero parallax) — no runtime framework
-- Google Fonts: Cormorant Garamond + Jost
+Paste this to Claude Code from inside this folder:
 
-## Develop
+> Publish this folder to GitHub Pages. Create a new public repo under my account if one doesn't exist,
+> commit index.html and Dhwani-Patel-Resume.pdf at the repo root, push to main, then enable
+> GitHub Pages (deploy from branch main, / root) and give me the live URL.
 
-```bash
-npm install
-npm run dev      # local dev server at http://localhost:4321
-npm run build    # static build into ./dist
-npm run preview  # preview the production build
-```
+## Updating later
 
-## Deploy
-
-Pushing to `main` triggers the [GitHub Actions workflow](.github/workflows/deploy.yml),
-which builds the site and publishes it to GitHub Pages at
-**https://dhwanip9.github.io**.
-
-## Editing content
-
-Everything lives in [`src/pages/index.astro`](src/pages/index.astro). Notable spots
-to personalize:
-
-- **Portrait & past-work photos** — currently styled placeholders. Drop real images
-  into `public/` and swap the placeholder blocks for `<img>` tags.
-- **"Currently working on"** card — replace the placeholder title and copy.
+Replace `index.html` with a fresh export and ask Claude Code to commit and push. Keep both files
+at the repository root — the résumé link is relative, so it breaks if the PDF moves into a subfolder.
