@@ -1,19 +1,23 @@
-# Dhwani Patel — personal site
+# dhwanip9.github.io
 
-Two files, no build step, no dependencies:
+Personal website for **Dhwani Patel** — live at **https://dhwanip9.github.io**.
 
-- `index.html` — the entire site, self-contained (images, fonts, and scripts are inlined)
-- `Dhwani-Patel-Resume.pdf` — linked by the "Résumé" buttons in the nav and contact section
+## Structure
 
-## Publishing to GitHub Pages
+A lean static site (no build step), served by GitHub Pages from `main` / root:
 
-Paste this to Claude Code from inside this folder:
+- `index.html` — the whole page (inline CSS + a little vanilla JS for scroll reveals, hero parallax, and runtime email assembly)
+- `assets/about-portrait.jpeg`, `assets/north-star-v2.png` — images
+- `Dhwani-Patel-Resume.pdf` — linked by the "Résumé" buttons (keep at root; the link is relative)
+- `favicon.svg`, `.nojekyll`
 
-> Publish this folder to GitHub Pages. Create a new public repo under my account if one doesn't exist,
-> commit index.html and Dhwani-Patel-Resume.pdf at the repo root, push to main, then enable
-> GitHub Pages (deploy from branch main, / root) and give me the live URL.
+## How it's updated
 
-## Updating later
+The design is authored in **Claude Design** (project "Personal journey scroll template",
+file `Dhwani Patel v3.dc.html`). To update: edit there, then ask Claude Code to
+"publish my latest" — it pulls the current design + assets via the design connector,
+rebuilds this lean site, and pushes to `main`. A push triggers the GitHub Pages
+branch build automatically (~1 min).
 
-Replace `index.html` with a fresh export and ask Claude Code to commit and push. Keep both files
-at the repository root — the résumé link is relative, so it breaks if the PDF moves into a subfolder.
+> Note: the contact email is assembled at runtime from split parts, so no plaintext
+> address sits in the HTML for scrapers. Keep that pattern on rebuilds.
